@@ -13,9 +13,10 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'mysql:mysql-connector-java'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.3.RELEASE'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.2.RELEASE'
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.25.Final'
+	runtimeOnly group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
