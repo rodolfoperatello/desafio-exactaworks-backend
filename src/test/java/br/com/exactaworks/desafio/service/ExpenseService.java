@@ -4,9 +4,7 @@ import br.com.exactaworks.desafio.controller.request.ExpenseRequest;
 import br.com.exactaworks.desafio.controller.response.ExpenseResponse;
 import br.com.exactaworks.desafio.mapper.ExpenseMapper;
 import br.com.exactaworks.desafio.repository.ExpenseRepository;
-import org.springframework.stereotype.Service;
 
-@Service
 public class ExpenseService {
 
     private final ExpenseRepository expenseRepository;
