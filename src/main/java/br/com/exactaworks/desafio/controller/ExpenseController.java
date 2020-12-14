@@ -1,5 +1,7 @@
 package br.com.exactaworks.desafio.controller;
 
+import br.com.exactaworks.desafio.controller.request.ExpenseRequest;
+import br.com.exactaworks.desafio.controller.response.ExpenseResponse;
 import br.com.exactaworks.desafio.service.ExpenseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,5 +23,4 @@ public class ExpenseController {
     public ResponseEntity<ExpenseResponse> createExpense(@RequestBody @Validated ExpenseRequest expenseRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(this.expenseService.saveExpense(expenseRequest));
     }
-
 }
