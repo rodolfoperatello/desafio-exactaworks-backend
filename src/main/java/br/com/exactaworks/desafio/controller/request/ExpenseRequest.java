@@ -1,4 +1,4 @@
-package br.com.exactaworks.desafio.controller;
+package br.com.exactaworks.desafio.controller.request;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
