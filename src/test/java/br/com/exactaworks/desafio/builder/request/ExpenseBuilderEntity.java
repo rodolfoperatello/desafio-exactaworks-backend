@@ -1,6 +1,7 @@
 package br.com.exactaworks.desafio.builder.request;
 
 import br.com.exactaworks.desafio.entity.ExpenseEntity;
+
 import java.math.BigDecimal;
 
 public class ExpenseBuilderEntity {
