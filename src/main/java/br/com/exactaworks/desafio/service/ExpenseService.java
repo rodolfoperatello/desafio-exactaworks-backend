@@ -5,6 +5,8 @@ import br.com.exactaworks.desafio.controller.response.ExpenseResponse;
 import br.com.exactaworks.desafio.exception.GenericException;
 import br.com.exactaworks.desafio.mapper.ExpenseMapper;
 import br.com.exactaworks.desafio.repository.ExpenseRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,5 +25,9 @@ public class ExpenseService {
     public ExpenseResponse findExpenseById(Long id) {
         return ExpenseMapper.convertToResponse(this.expenseRepository
                 .findById(id).orElseThrow(() -> new GenericException("EXPENSE NOT FOUND")));
+    }
+
+    public Page<ExpenseResponse> findAllExpenses(Pageable pageable) {
+        return ExpenseMapper.convertToPageResponse(this.expenseRepository.findAll(pageable));
     }
 }
