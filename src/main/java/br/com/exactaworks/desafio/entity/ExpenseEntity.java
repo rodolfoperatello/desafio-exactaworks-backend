@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "expense")
-public class Expense {
+public class ExpenseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,12 +17,12 @@ public class Expense {
     private BigDecimal value;
     private String tag;
 
-    private Expense(){
+    private ExpenseEntity(){
         this.dateTime = LocalDateTime.now();
-        this.tag = Tag.NOT_PAYED;
+        this.tag = TagEntity.NOT_PAYED;
     }
 
-    public Expense(String name, String description, BigDecimal value) {
+    public ExpenseEntity(String name, String description, BigDecimal value) {
         this();
         this.name = name;
         this.description = description;
