@@ -17,7 +17,7 @@ public class ExpenseEntity {
     private BigDecimal value;
     private String tag;
 
-    private ExpenseEntity(){
+    public ExpenseEntity(){
         this.dateTime = LocalDateTime.now();
         this.tag = TagEntity.NOT_PAYED;
     }
