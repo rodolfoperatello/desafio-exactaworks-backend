@@ -6,9 +6,7 @@ import br.com.exactaworks.desafio.service.ExpenseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/api/expense")
@@ -20,7 +18,13 @@ public class ExpenseController {
         this.expenseService = expenseService;
     }
 
+    @PostMapping
     public ResponseEntity<ExpenseResponse> createExpense(@RequestBody @Validated ExpenseRequest expenseRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(this.expenseService.saveExpense(expenseRequest));
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<ExpenseResponse> findExpenseById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(this.expenseService.findExpenseById(id));
     }
 }
