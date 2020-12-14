@@ -18,7 +18,8 @@ dependencies {
 	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
 	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.25.Final'
 	runtimeOnly group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.9'
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }
 
 test {
