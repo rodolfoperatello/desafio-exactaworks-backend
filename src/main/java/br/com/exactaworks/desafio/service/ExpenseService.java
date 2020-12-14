@@ -2,6 +2,7 @@ package br.com.exactaworks.desafio.service;
 
 import br.com.exactaworks.desafio.controller.request.ExpenseRequest;
 import br.com.exactaworks.desafio.controller.response.ExpenseResponse;
+import br.com.exactaworks.desafio.exception.GenericException;
 import br.com.exactaworks.desafio.mapper.ExpenseMapper;
 import br.com.exactaworks.desafio.repository.ExpenseRepository;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,10 @@ public class ExpenseService {
 
     public ExpenseResponse saveExpense(ExpenseRequest expenseRequest) {
         return ExpenseMapper.convertToResponse(this.expenseRepository.save(ExpenseMapper.convertToEntity(expenseRequest)));
+    }
+
+    public ExpenseResponse findExpenseById(Long id) {
+        return ExpenseMapper.convertToResponse(this.expenseRepository
+                .findById(id).orElseThrow(() -> new GenericException("EXPENSE NOT FOUND")));
     }
 }
