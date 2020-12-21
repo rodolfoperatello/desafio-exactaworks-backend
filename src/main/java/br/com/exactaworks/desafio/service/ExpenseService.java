@@ -24,7 +24,7 @@ public class ExpenseService {
 
     public ExpenseResponse findExpenseById(Long id) {
         return ExpenseMapper.convertToResponse(this.expenseRepository
-                .findById(id).orElseThrow(() -> new GenericException("EXPENSE NOT FOUND")));
+                .findById(id).orElseThrow(() -> new GenericException("despesa não encontrada")));
     }
 
     public Page<ExpenseResponse> findAllExpenses(Pageable pageable) {
