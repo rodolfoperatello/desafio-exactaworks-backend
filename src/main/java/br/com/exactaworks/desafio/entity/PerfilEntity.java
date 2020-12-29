@@ -2,23 +2,21 @@ package br.com.exactaworks.desafio.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Perfil implements GrantedAuthority {
+@Table(name = "perfil")
+public class PerfilEntity implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    public Perfil() {
+    public PerfilEntity() {
     }
 
-    public Perfil(String name) {
+    public PerfilEntity(String name) {
         this.name = name;
     }
 

@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class UserEntity implements UserDetails {
 
     @Id
@@ -19,7 +20,6 @@ public class UserEntity implements UserDetails {
     private String email;
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
-    @Column(name = "perfil_list")
     private final List<PerfilEntity> perfilEntityList = new ArrayList<>();
 
     public UserEntity() {
