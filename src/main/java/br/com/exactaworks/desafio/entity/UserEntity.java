@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class User implements UserDetails {
+public class UserEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,14 +18,14 @@ public class User implements UserDetails {
     private String lastName;
     private String email;
     private String password;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @Column(name = "perfil_list")
-    private final List<Perfil> perfilList = new ArrayList<>();
+    private final List<PerfilEntity> perfilEntityList = new ArrayList<>();
 
-    public User () {
+    public UserEntity() {
     }
 
-    public User(String name, String lastName, String email, String password) {
+    public UserEntity(String name, String lastName, String email, String password) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -68,13 +68,13 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public List<Perfil> getPerfilList() {
-        return perfilList;
+    public List<PerfilEntity> getPerfilList() {
+        return perfilEntityList;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.perfilList;
+        return this.perfilEntityList;
     }
 
     @Override
@@ -115,7 +115,7 @@ public class User implements UserDetails {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", perfilList=" + perfilList +
+                ", perfilList=" + perfilEntityList +
                 '}';
     }
 }
