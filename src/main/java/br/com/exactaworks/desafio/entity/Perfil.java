@@ -16,7 +16,6 @@ public class Perfil implements GrantedAuthority {
     private String name;
 
     public Perfil() {
-
     }
 
     public Perfil(String name) {
@@ -43,5 +42,13 @@ public class Perfil implements GrantedAuthority {
     //atributo que tem o nome do perfil
     public String getAuthority() {
         return this.name;
+    }
+
+    @Override
+    public String toString() {
+        return "Perfil{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
