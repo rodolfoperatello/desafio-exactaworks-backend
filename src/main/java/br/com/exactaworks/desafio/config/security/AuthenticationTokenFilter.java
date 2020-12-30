@@ -1,4 +1,4 @@
-package br.com.exactaworks.desafio.security;
+package br.com.exactaworks.desafio.config.security;
 
 import br.com.exactaworks.desafio.exception.GenericException;
 import br.com.exactaworks.desafio.repository.UserRepository;
