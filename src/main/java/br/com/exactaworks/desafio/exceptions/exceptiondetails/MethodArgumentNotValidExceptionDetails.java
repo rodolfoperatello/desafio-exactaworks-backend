@@ -1,11 +1,11 @@
 package br.com.exactaworks.desafio.exceptions.exceptiondetails;
 
-public class methodArgumentNotValidExceptionDetails {
+public class MethodArgumentNotValidExceptionDetails {
 
     private final String attribute;
     private final String message;
 
-    public methodArgumentNotValidExceptionDetails(String attribute, String message) {
+    public MethodArgumentNotValidExceptionDetails(String attribute, String message) {
         this.attribute = attribute;
         this.message = message;
     }
