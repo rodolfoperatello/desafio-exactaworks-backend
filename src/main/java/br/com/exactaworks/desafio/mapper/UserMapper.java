@@ -21,6 +21,7 @@ public class UserMapper {
 
     public static UserResponse convertToResponse(UserEntity userEntity){
         return new UserBuilderResponse()
+                .withId(userEntity.getId())
                 .withFullName(userEntity.getName().concat(" ").concat(userEntity.getLastName()))
                 .withEmail(userEntity.getEmail())
                 .build();
