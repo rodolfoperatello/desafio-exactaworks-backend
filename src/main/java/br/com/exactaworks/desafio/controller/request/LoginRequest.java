@@ -1,12 +1,18 @@
 package br.com.exactaworks.desafio.controller.request;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.validation.constraints.NotEmpty;
 
+@ApiModel(description = "Details about the LoginRequest")
 public class LoginRequest {
 
-    @NotEmpty(message = "O email não pode ser nulo ou vazio")
+    @NotEmpty(message = "The user's email cannot be null or empty")
+    @ApiModelProperty(notes = "The user's email")
     private String email;
-    @NotEmpty(message = "A senha não pode ser nulo ou vazio")
+    @NotEmpty(message = "The user's password cannot be null or empty")
+    @ApiModelProperty(notes = "The user's password")
     private String password;
 
     public String getEmail() {
