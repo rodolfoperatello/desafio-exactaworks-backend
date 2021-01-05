@@ -1,6 +1,8 @@
 package br.com.exactaworks.desafio.builder.request;
 
 import br.com.exactaworks.desafio.entity.ExpenseEntity;
+import br.com.exactaworks.desafio.entity.UserEntity;
+
 import java.math.BigDecimal;
 
 public class ExpenseBuilderEntity {
@@ -11,8 +13,8 @@ public class ExpenseBuilderEntity {
         this.expenseEntity = new ExpenseEntity();
     }
 
-    public ExpenseBuilderEntity withName(String name){
-        this.expenseEntity.setName(name);
+    public ExpenseBuilderEntity withUserEntity(UserEntity userEntity){
+        this.expenseEntity.setUserEntity(userEntity);
         return this;
     }
 
