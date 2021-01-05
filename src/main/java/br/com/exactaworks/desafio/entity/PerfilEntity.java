@@ -1,7 +1,6 @@
 package br.com.exactaworks.desafio.entity;
 
 import org.springframework.security.core.GrantedAuthority;
-
 import javax.persistence.*;
 
 @Entity
@@ -37,7 +36,6 @@ public class PerfilEntity implements GrantedAuthority {
     }
 
     @Override
-    //atributo que tem o nome do perfil
     public String getAuthority() {
         return this.name;
     }
