@@ -4,7 +4,7 @@ import br.com.exactaworks.desafio.entity.UserEntity;
 
 public class UserBuilderEntity {
 
-    private UserEntity userEntity;
+    private final UserEntity userEntity;
 
     public UserBuilderEntity(){
         this.userEntity = new UserEntity();
