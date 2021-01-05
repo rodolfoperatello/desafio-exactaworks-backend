@@ -1,15 +1,25 @@
 package br.com.exactaworks.desafio.controller.response;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@ApiModel(description = "Details about the ExpenseResponse")
 public class ExpenseResponse {
 
+    @ApiModelProperty(notes = "The unique ID of the expense")
     private Long id;
+    @ApiModelProperty(notes = "The person's name")
     private String name;
+    @ApiModelProperty(notes = "The expense's name")
     private String description;
+    @ApiModelProperty(notes = "The date and time when the expense was generated")
     private LocalDateTime dateTime;
+    @ApiModelProperty(notes = "The expense's value")
     private BigDecimal value;
+    @ApiModelProperty(notes = "The expense's tag")
     private String tag;
 
     public Long getId() {
