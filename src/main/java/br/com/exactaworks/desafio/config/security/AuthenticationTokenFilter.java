@@ -1,6 +1,6 @@
 package br.com.exactaworks.desafio.config.security;
 
-import br.com.exactaworks.desafio.exception.GenericException;
+import br.com.exactaworks.desafio.exceptions.exception.NotFoundException;
 import br.com.exactaworks.desafio.repository.UserRepository;
 import br.com.exactaworks.desafio.service.TokenService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -39,7 +39,7 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
     }
 
     private void authenticateUser(String token) {
-        var user = this.userRepository.findUserById(getUserId(token)).orElseThrow(() -> new GenericException("User not found"));
+        var user = this.userRepository.findUserById(getUserId(token)).orElseThrow(() -> new NotFoundException("User not found"));
         var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
