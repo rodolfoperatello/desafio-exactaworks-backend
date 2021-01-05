@@ -1,8 +1,8 @@
 package br.com.exactaworks.desafio.exceptions.exception;
 
-public class GenericException extends RuntimeException{
+public class NotFoundException extends RuntimeException{
 
-    public GenericException(String errorMessage) {
+    public NotFoundException(String errorMessage) {
         super(errorMessage);
     }
 }
