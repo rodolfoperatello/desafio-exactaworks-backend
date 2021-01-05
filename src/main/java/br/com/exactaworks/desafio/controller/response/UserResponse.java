@@ -6,10 +6,20 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Details about UserResponse")
 public class UserResponse {
 
+    @ApiModelProperty(value = "The user's ID")
+    private Long id;
     @ApiModelProperty(value = "The user's full name")
     private String fullName;
     @ApiModelProperty(value = "The user's email")
     private String email;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFullName() {
         return fullName;
