@@ -1,4 +1,4 @@
-package br.com.exactaworks.desafio.security;
+package br.com.exactaworks.desafio.config.security;
 
 import br.com.exactaworks.desafio.repository.UserRepository;
 import br.com.exactaworks.desafio.service.AuthenticationService;
@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @EnableWebSecurity
 @Configuration
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private AuthenticationService authenticationService;
@@ -42,10 +42,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/expense").permitAll()
-                .antMatchers(HttpMethod.GET,"/api/expense/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/expense").hasRole("USER")
+                .antMatchers(HttpMethod.POST,"/api/expense").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/api/expense/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/actuator/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/api/user").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/auth").permitAll()
-                .antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -54,6 +56,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**");
     }
 }
 
