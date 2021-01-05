@@ -11,7 +11,9 @@ public class ExpenseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private UserEntity userEntity;
     private String description;
     private LocalDateTime dateTime;
     private BigDecimal value;
@@ -22,9 +24,9 @@ public class ExpenseEntity {
         this.tag = TagEntity.NOT_PAYED;
     }
 
-    public ExpenseEntity(String name, String description, BigDecimal value) {
+    public ExpenseEntity(UserEntity userEntity, String description, BigDecimal value) {
         this();
-        this.name = name;
+        this.userEntity = userEntity;
         this.description = description;
         this.value = value;
     }
@@ -37,12 +39,12 @@ public class ExpenseEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
     public String getDescription() {
@@ -79,9 +81,9 @@ public class ExpenseEntity {
 
     @Override
     public String toString() {
-        return "Expense{" +
+        return "ExpenseEntity{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", userEntity=" + userEntity +
                 ", description='" + description + '\'' +
                 ", dateTime=" + dateTime +
                 ", value=" + value +
