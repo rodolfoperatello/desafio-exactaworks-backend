@@ -13,7 +13,6 @@ public class ExpenseMapper {
 
     public static ExpenseEntity convertToEntity(ExpenseRequest expenseRequest){
         return new ExpenseBuilderEntity()
-                .withName(expenseRequest.getName())
                 .withDescription(expenseRequest.getDescription())
                 .withValue(expenseRequest.getValue())
                 .build();
@@ -22,7 +21,6 @@ public class ExpenseMapper {
     public static ExpenseResponse convertToResponse(ExpenseEntity expenseEntity){
         return new ExpenseBuilderResponse()
                 .withId(expenseEntity.getId())
-                .withName(expenseEntity.getName())
                 .withDescription(expenseEntity.getDescription())
                 .withLocalDateTime(expenseEntity.getDateTime())
                 .withValue(expenseEntity.getValue())
