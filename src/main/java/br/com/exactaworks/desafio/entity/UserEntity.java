@@ -72,6 +72,10 @@ public class UserEntity implements UserDetails {
         return perfilEntityList;
     }
 
+    public void addPerfil(PerfilEntity perfilEntity){
+        this.perfilEntityList.add(perfilEntity);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.perfilEntityList;
