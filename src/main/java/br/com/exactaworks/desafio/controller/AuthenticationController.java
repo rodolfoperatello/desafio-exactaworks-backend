@@ -11,12 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.logging.Logger;
 
 @RestController
@@ -37,7 +37,7 @@ public class AuthenticationController {
     @ApiOperation(value = "Authenticate an user",
             notes = "Provide a user's email and password to authenticate",
             response = ExpenseResponse.class)
-    public ResponseEntity<?> authenticate(@RequestBody @Validated LoginRequest loginRequest){
+    public ResponseEntity<?> authenticate(@RequestBody @Valid LoginRequest loginRequest){
 
         try {
             var authentication = authenticationManager.authenticate(
