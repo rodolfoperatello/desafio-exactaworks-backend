@@ -1,9 +1,12 @@
 package br.com.exactaworks.desafio.controller;
 
 import br.com.exactaworks.desafio.controller.request.LoginRequest;
+import br.com.exactaworks.desafio.controller.response.ExpenseResponse;
 import br.com.exactaworks.desafio.controller.response.TokenResponse;
 import br.com.exactaworks.desafio.mapper.LoginMapper;
 import br.com.exactaworks.desafio.service.TokenService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +21,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(value = "/api/auth")
+@Api(tags = {"Authentication Controller"})
 public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
@@ -30,6 +34,9 @@ public class AuthenticationController {
     }
 
     @PostMapping
+    @ApiOperation(value = "Authenticate an user",
+            notes = "Provide a user's email and password to authenticate",
+            response = ExpenseResponse.class)
     public ResponseEntity<?> authenticate(@RequestBody @Validated LoginRequest loginRequest){
 
         try {
