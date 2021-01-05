@@ -1,4 +1,4 @@
-package br.com.exactaworks.desafio.exceptions.exceptionDetails;
+package br.com.exactaworks.desafio.exceptions.exceptiondetails;
 
 import java.time.LocalDateTime;
 
