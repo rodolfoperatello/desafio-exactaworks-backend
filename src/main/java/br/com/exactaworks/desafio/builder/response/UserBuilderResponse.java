@@ -4,10 +4,15 @@ import br.com.exactaworks.desafio.controller.response.UserResponse;
 
 public class UserBuilderResponse {
 
-    private UserResponse userResponse;
+    private final UserResponse userResponse;
 
     public UserBuilderResponse() {
         this.userResponse = new UserResponse();
+    }
+
+    public UserBuilderResponse withId(Long id){
+        this.userResponse.setId(id);
+        return this;
     }
 
     public UserBuilderResponse withFullName(String fullName){
