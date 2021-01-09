@@ -11,8 +11,8 @@ public class ExpenseResponse {
 
     @ApiModelProperty(notes = "The unique ID of the expense")
     private Long id;
-    @ApiModelProperty(notes = "The person's name")
-    private String name;
+    @ApiModelProperty(notes = "The person's full name")
+    private String fullName;
     @ApiModelProperty(notes = "The expense's name")
     private String description;
     @ApiModelProperty(notes = "The date and time when the expense was generated")
@@ -30,12 +30,12 @@ public class ExpenseResponse {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getDescription() {

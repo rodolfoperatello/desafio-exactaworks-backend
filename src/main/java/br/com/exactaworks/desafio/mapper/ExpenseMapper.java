@@ -15,12 +15,17 @@ public class ExpenseMapper {
         return new ExpenseBuilderEntity()
                 .withDescription(expenseRequest.getDescription())
                 .withValue(expenseRequest.getValue())
+                .withTag(expenseRequest.getTag())
+                .withDateTime(expenseRequest.getDateTime())
                 .build();
     }
 
     public static ExpenseResponse convertToResponse(ExpenseEntity expenseEntity){
         return new ExpenseBuilderResponse()
                 .withId(expenseEntity.getId())
+                .withFullName(expenseEntity.getUserEntity().getName()
+                        .concat(" ")
+                        .concat(expenseEntity.getUserEntity().getLastName()))
                 .withDescription(expenseEntity.getDescription())
                 .withLocalDateTime(expenseEntity.getDateTime())
                 .withValue(expenseEntity.getValue())

@@ -20,15 +20,15 @@ public class ExpenseEntity {
     private String tag;
 
     public ExpenseEntity(){
-        this.dateTime = LocalDateTime.now();
-        this.tag = TagEntity.NOT_PAYED;
     }
 
-    public ExpenseEntity(UserEntity userEntity, String description, BigDecimal value) {
+    public ExpenseEntity(UserEntity userEntity, String description, BigDecimal value, String tag, LocalDateTime dateTime) {
         this();
         this.userEntity = userEntity;
         this.description = description;
         this.value = value;
+        this.tag = tag;
+        this.dateTime = dateTime;
     }
 
     public Long getId() {
