@@ -3,6 +3,7 @@ package br.com.exactaworks.desafio.service;
 import br.com.exactaworks.desafio.controller.request.UserRequest;
 import br.com.exactaworks.desafio.controller.response.UserResponse;
 import br.com.exactaworks.desafio.entity.UserEntity;
+import br.com.exactaworks.desafio.exceptions.exception.NotFoundException;
 import br.com.exactaworks.desafio.mapper.UserMapper;
 import br.com.exactaworks.desafio.repository.UserRepository;
 import org.springframework.data.domain.Page;
@@ -27,15 +28,19 @@ public class UserService {
         return UserMapper.convertToResponse(this.userRepository.save(createUserEntity(userRequest)));
     }
 
+    public UserEntity findUserEntityById(Long id){
+        return this.userRepository.findById(id).orElseThrow(() -> new NotFoundException("User not found"));
+    }
+
+    public Page<UserResponse> findAllUsers(Pageable pageable) {
+        return UserMapper.convertToPageUserResponse(this.userRepository.findAll(pageable));
+    }
+
     private UserEntity createUserEntity(UserRequest userRequest) {
         var perfil = perfilService.findPerfilByName("user");
         var userEntity = UserMapper.convertToEntity(userRequest);
         userEntity.addPerfil(perfil);
 
         return userEntity;
-    }
-
-    public Page<UserResponse> findAllUsers(Pageable pageable) {
-        return UserMapper.convertToPageUserResponse(this.userRepository.findAll(pageable));
     }
 }
