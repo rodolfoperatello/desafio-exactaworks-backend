@@ -17,8 +17,8 @@ public class ExpenseBuilderResponse {
         return this;
     }
 
-    public ExpenseBuilderResponse withName(String name){
-        this.expenseResponse.setName(name);
+    public ExpenseBuilderResponse withFullName(String fullName){
+        this.expenseResponse.setFullName(fullName);
         return this;
     }
 
