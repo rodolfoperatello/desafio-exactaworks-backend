@@ -6,6 +6,7 @@ import br.com.exactaworks.desafio.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,6 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @EnableWebSecurity
 @Configuration
+@Profile("production")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
@@ -44,7 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/api/expense").hasRole("USER")
                 .antMatchers(HttpMethod.POST,"/api/expense").hasRole("USER")
-                .antMatchers(HttpMethod.GET,"/api/expense/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/api/expense/**").hasRole("USER")
                 .antMatchers(HttpMethod.GET, "/actuator/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/api/user").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/auth").permitAll()
@@ -56,12 +58,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/v2/api-docs",
+        web.ignoring().antMatchers("/v2/ap5i-docs",
                 "/configuration/ui",
                 "/swagger-resources/**",
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**");
     }
+
+
 }
 
