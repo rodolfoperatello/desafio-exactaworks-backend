@@ -7,6 +7,7 @@ import br.com.exactaworks.desafio.mapper.LoginMapper;
 import br.com.exactaworks.desafio.service.TokenService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +23,7 @@ import java.util.logging.Logger;
 @RestController
 @RequestMapping(value = "/api/auth")
 @Api(tags = {"Authentication Controller"})
+@Profile("production")
 public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
