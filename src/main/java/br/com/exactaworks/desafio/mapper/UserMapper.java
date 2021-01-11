@@ -12,7 +12,7 @@ public class UserMapper {
 
     public static UserEntity convertToEntity (UserRequest userRequest){
         return new UserBuilderEntity()
-                .withName(userRequest.getName())
+                .withFirstName(userRequest.getFisrtName())
                 .withLastName(userRequest.getLastName())
                 .withEmail(userRequest.getEmail())
                 .withPassword(new BCryptPasswordEncoder().encode(userRequest.getPassword()))
