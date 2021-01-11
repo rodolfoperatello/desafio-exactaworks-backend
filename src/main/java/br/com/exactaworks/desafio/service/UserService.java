@@ -29,7 +29,7 @@ public class UserService {
     }
 
     public UserEntity findUserEntityById(Long id){
-        return this.userRepository.findById(id).orElseThrow(() -> new NotFoundException("User not found"));
+        return this.userRepository.findById(id).orElseThrow(() -> new NotFoundException("Usuário não encontrado"));
     }
 
     public Page<UserResponse> findAllUsers(Pageable pageable) {
@@ -37,7 +37,7 @@ public class UserService {
     }
 
     private UserEntity createUserEntity(UserRequest userRequest) {
-        var perfil = perfilService.findPerfilByName("user");
+        var perfil = perfilService.findPerfilByName("USER");
         var userEntity = UserMapper.convertToEntity(userRequest);
         userEntity.addPerfil(perfil);
 

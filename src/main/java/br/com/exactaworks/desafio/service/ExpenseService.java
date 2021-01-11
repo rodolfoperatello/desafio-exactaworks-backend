@@ -33,7 +33,6 @@ public class ExpenseService {
     public Page<ExpenseResponse> findAllExpenses(Pageable pageable) {
         return ExpenseMapper.convertToPageResponse(this.expenseRepository.findAll(pageable));
     }
-
     private ExpenseEntity createExpenseEntity (ExpenseRequest expenseRequest){
         var user = this.userService.findUserEntityById(expenseRequest.getUserId());
 
