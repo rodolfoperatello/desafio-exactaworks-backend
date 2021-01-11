@@ -10,7 +10,7 @@ public class UserBuilderEntity {
         this.userEntity = new UserEntity();
     }
 
-    public UserBuilderEntity withName(String name){
+    public UserBuilderEntity withFirstName(String name){
         this.userEntity.setName(name);
         return this;
     }
