@@ -15,7 +15,7 @@ public class UserRequest {
     private String email;
     @NotBlank(message = "The user's name cannot be null or empty")
     @ApiModelProperty(value = "The user's name")
-    private String name;
+    private String fisrtName;
     @NotBlank(message = "The user's last name cannot be null or empty")
     @ApiModelProperty(value = "The user's last name")
     private String lastName;
@@ -31,12 +31,12 @@ public class UserRequest {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getFisrtName() {
+        return fisrtName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFisrtName(String fisrtName) {
+        this.fisrtName = fisrtName;
     }
 
     public String getLastName() {
