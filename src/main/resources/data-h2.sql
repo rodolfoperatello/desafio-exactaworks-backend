@@ -1,7 +1,7 @@
 INSERT INTO "user" (email, name, last_name, password) VALUES ('pedrosilva@hotmail.com', 'Pedro', 'Silva', '$2y$12$lBRPSdZ9ft9G8uKz7tr5yuNSqXLzl/vynOaNViLZP7ACzWNOUmrPq')
 INSERT INTO "user" (email, name, last_name, password) VALUES ('carlosroberto@hotmail.com', 'Carlos', 'Roberto', '$2y$12$5Uw2tiN9Sa37Xq.fO.VHtOCOf6fPWQnUMlg.79TH6mKEZ40DM22qm')
 INSERT INTO "user" (email, name, last_name, password) VALUES ('mariana08@hotmail.com', 'Mariana', 'B. Ferreira', '$2y$12$dag5AxvurR70mSU0C.YhUOT306l2BWjCiL084YoNx2GONlBIQ7BxK')
-INSERT INTO "user" (email, name, last_name, password) VALUES ('fernando_jose@hotmail.com', 'Fernando', 'José', '$2y$12$oNLJhkClUvlgnDVsaSNfLeSVDG7CSDmCESuoZXOxJH7F9MKuRUzZG')
+INSERT INTO "user" (email, name, last_name, password) VALUES ('fernando_jose@hotmail.com', 'Fernando', 'José', '$2y$12$oosAMJ/m13jEpCtawea4BO/bNyUtlseCbu9IKpLqIZcpn6d6iyGIq')
 INSERT INTO "user" (email, name, last_name, password) VALUES ('admin@admin.com', 'admin', 'admin', '$2y$12$s8Pz4v50PMJYjUIj40nPC.LBC2TrY/4ABWpwQqE4kVtMkEq.94kz')
 
 INSERT INTO "perfil" (name) VALUES ('ADMIN')
